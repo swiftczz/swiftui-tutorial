@@ -84,7 +84,7 @@ SwiftUI 内置了几种场景：
 | 场景 | 用途 | 平台 |
 | --- | --- | --- |
 | `WindowGroup` | 应用的主界面。可以有多个实例 | 全平台 |
-| `Window` | 一个唯一的窗口，例如“关于”窗口 | macOS、iPadOS、visionOS |
+| `Window` | 一个唯一的窗口，例如“关于”窗口 | macOS、visionOS |
 | `DocumentGroup` | 基于文档的应用（打开、保存文件） | iOS、macOS |
 | `Settings` | 设置窗口，自动挂到“设置…”菜单项 | macOS |
 | `MenuBarExtra` | 系统菜单栏右侧的图标及其菜单 | macOS |
@@ -275,7 +275,7 @@ struct PhaseDemo: View {
 }
 ```
 
-`@Previewable` <Badge type="tip" text="iOS 18+ / macOS 15+ 的 SDK" /> 让你在预览闭包里直接声明 `@State`，不必为了预览专门写一个包装视图。
+`@Previewable` <Badge type="tip" text="iOS 17+ / macOS 14+" /> 让你在预览闭包里直接声明 `@State`，不必为了预览专门写一个包装视图。它随 Xcode 16 引入。
 
 ## 项目里的其他东西
 

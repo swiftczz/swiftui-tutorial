@@ -160,7 +160,7 @@ struct StatCard: View {
 | `.fullScreenCover` | `HSplitView`、`VSplitView` |
 | `EditButton`、`editMode` | `.pointerStyle` |
 | `.statusBarHidden` | `Toggle` 的 `.checkbox` 样式、`Picker` 的 `.radioGroup` 样式 |
-| `ToolbarItemPlacement.topBarLeading`、`.bottomBar`、`.keyboard` | `NSViewRepresentable` |
+| `ToolbarItemPlacement.topBarLeading`、`.bottomBar` | `NSViewRepresentable` |
 | `.navigationTransition(.zoom)` | `.onExitCommand`、`.onDeleteCommand` |
 | `UIViewRepresentable` | `.alternatingRowBackgrounds` |
 
@@ -753,10 +753,10 @@ struct AnyAppleOSCheck: View {
 
 | 最低版本 | 你能直接使用的 |
 | --- | --- |
-| iOS 17 / macOS 14 | `@Observable`、SwiftData、新的滚动 API、`PhaseAnimator`、`KeyframeAnimator`、弹簧的新参数 |
+| iOS 17 / macOS 14 | `@Observable`、SwiftData、新的滚动 API、`PhaseAnimator`、`KeyframeAnimator`、`Transition` 协议、着色器效果 |
 | iOS 18 / macOS 15 | `Tab` 类型、`.sidebarAdaptable`、缩放转场、`MeshGradient`、`onScrollGeometryChange`、`TextRenderer`、容器值 |
 | iOS 26 / macOS 26 | Liquid Glass、`WebView`、富文本 `TextEditor`、`ToolbarSpacer`、`Observations`、滚动边缘效果 |
-| iOS 27 / macOS 27 | `reorderable`、`swipeActionsContainer`、`ToolbarOverflowMenu`、新的 `Document` 协议 |
+| iOS 27 / macOS 27 | `reorderable`、`swipeActionsContainer`、新的 `Document` 协议、`AsyncImage` 的缓存配置、手势的输入来源 |
 
 学习和做个人项目时，直接把最低版本设为最新的系统，可以专心学新 API。面向大众发布的应用，通常支持当前和上一个大版本。
 
@@ -878,7 +878,7 @@ struct AnyAppleOSCheck: View {
 ## 官方文档
 
 - [Configuring a multiplatform app](https://developer.apple.com/documentation/xcode/configuring-a-multiplatform-app-target)
-- [Food Truck: Building a SwiftUI multiplatform app（官方示例项目）](https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app)
+- [Food Truck: Building a SwiftUI multiplatform app（官方示例项目）](https://developer.apple.com/documentation/swiftui/food-truck-building-a-swiftui-multiplatform-app)
 - [Backyard Birds: Building an app with SwiftData and widgets（官方示例项目）](https://developer.apple.com/documentation/swiftui/backyard-birds-sample)
 - [Destination Video（官方多平台示例）](https://developer.apple.com/documentation/visionos/destination-video)
 - [`UserInterfaceSizeClass`](https://developer.apple.com/documentation/swiftui/userinterfacesizeclass)

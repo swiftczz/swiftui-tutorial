@@ -429,7 +429,9 @@ struct RowCustomization: View {
             Text("带文字角标")
                 .badge("新")
         }
+        #if os(iOS)
         .listRowSpacing(6)
+        #endif
         .scrollContentBackground(.hidden)
         .background(.blue.opacity(0.08))
     }
@@ -443,7 +445,7 @@ struct RowCustomization: View {
 | `.listRowBackground(_:)` | 行背景 | 行 |
 | `.listRowInsets(_:)` | 行内边距 | 行 |
 | `.badge(_:)` | 行尾角标 | 行 |
-| `.listRowSpacing(_:)` | 行间距 | `List` |
+| `.listRowSpacing(_:)` | 行间距（仅 iOS，macOS 上不可用） | `List` |
 | `.listSectionSpacing(_:)` | 分组间距（iOS） | `List` |
 | `.scrollContentBackground(.hidden)` | 隐藏列表默认背景 | `List` |
 | `.alternatingRowBackgrounds()` | 交替行背景（macOS） | `List` |

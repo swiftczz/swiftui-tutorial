@@ -780,7 +780,7 @@ var body: some View {
 - [`equatable()`](https://developer.apple.com/documentation/swiftui/view/equatable())
 - [Gathering information about memory use](https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use)
 - [Diagnosing and resolving bugs in your running app](https://developer.apple.com/documentation/xcode/diagnosing-and-resolving-bugs-in-your-running-app)
-- [Instruments 使用指南](https://developer.apple.com/documentation/xcode/instruments)
+- [Performance and metrics（Xcode 性能工具总览）](https://developer.apple.com/documentation/xcode/performance-and-metrics)
 - [WWDC25：Optimize SwiftUI performance with Instruments](https://developer.apple.com/videos/play/wwdc2025/306/)
 - [WWDC23：Demystify SwiftUI performance](https://developer.apple.com/videos/play/wwdc2023/10160/)
 - [WWDC21：Demystify SwiftUI](https://developer.apple.com/videos/play/wwdc2021/10022/)

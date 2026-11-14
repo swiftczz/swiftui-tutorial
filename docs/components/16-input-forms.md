@@ -684,4 +684,4 @@ struct SignUpForm: View {
 - [`scrollDismissesKeyboard(_:)`](https://developer.apple.com/documentation/swiftui/view/scrolldismisseskeyboard(_:))
 - [`Form`](https://developer.apple.com/documentation/swiftui/form)
 - [`FormStyle`](https://developer.apple.com/documentation/swiftui/formstyle)
-- [WWDC25：Cook up a rich text experience in SwiftUI with AttributedString](https://developer.apple.com/videos/play/wwdc2025/280/)
+- [WWDC25：Code-along: Cook up a rich text experience in SwiftUI with AttributedString](https://developer.apple.com/videos/play/wwdc2025/280/)

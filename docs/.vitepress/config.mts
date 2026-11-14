@@ -137,7 +137,6 @@ export default defineConfig({
     },
     footer: {
       message: '基于 Swift 6.3 / 6.4 与 Xcode 27 SDK 编写，示例代码均经过编译器类型检查',
-      copyright: '内容以 CC BY-NC-SA 4.0 许可发布',
     },
   },
 })

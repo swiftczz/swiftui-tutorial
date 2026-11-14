@@ -171,9 +171,9 @@ struct ListDropDemo: View {
 
 如果只是在同一个列表内部调整顺序，用第 17 章的 `.onMove` 或 `.reorderable()` 更合适。拖放用于在不同容器、不同应用之间移动数据。
 
-### 多项拖放与拖放配置 <Badge type="tip" text="iOS 26+ / macOS 26+" />
+### 多项拖放与拖放配置 <Badge type="tip" text="macOS 26+ / iOS 27+" />
 
-26 系列增强了拖放：`.dragContainer` 让一个容器支持一次拖动多个选中项；`.dragConfiguration`、`.dropConfiguration` 可以指定这次拖放是“移动”还是“拷贝”；`.onDragSessionUpdated` 可以观察拖动会话的进展（比如拖到废纸篓时删除原数据）。这些主要用于 Mac 和 iPad 上的文件管理类应用，具体用法见章末的官方文档。
+这组 API 先在 macOS 26 上出现，iOS 和 iPadOS 从 27 开始支持：`.dragContainer` 让一个容器支持一次拖动多个选中项；`.dragConfiguration`、`.dropConfiguration` 可以指定这次拖放是“移动”还是“拷贝”；`.onDragSessionUpdated` 可以观察拖动会话的进展（比如拖到废纸篓时删除原数据）。这些主要用于 Mac 和 iPad 上的文件管理类应用，具体用法见章末的官方文档。
 
 ## 拷贝与粘贴
 
@@ -608,7 +608,8 @@ struct VideoDemo: View {
 - [Drag and drop（专题总览）](https://developer.apple.com/documentation/swiftui/drag-and-drop)
 - [Clipboard（专题总览）](https://developer.apple.com/documentation/swiftui/clipboard)
 - [`PasteButton`](https://developer.apple.com/documentation/swiftui/pastebutton)
-- [File management（专题总览，含 fileImporter / fileExporter）](https://developer.apple.com/documentation/swiftui/file-management)
+- [`fileImporter(isPresented:allowedContentTypes:onCompletion:)`](https://developer.apple.com/documentation/swiftui/view/fileimporter(ispresented:allowedcontenttypes:oncompletion:))
+- [`fileExporter(isPresented:document:contentType:defaultFilename:onCompletion:)`](https://developer.apple.com/documentation/swiftui/view/fileexporter(ispresented:document:contenttype:defaultfilename:oncompletion:))
 - [`FileDocument`](https://developer.apple.com/documentation/swiftui/filedocument)
 - [`PhotosPicker`](https://developer.apple.com/documentation/photosui/photospicker)
 - [MapKit for SwiftUI](https://developer.apple.com/documentation/mapkit/mapkit-for-swiftui)

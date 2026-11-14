@@ -761,5 +761,4 @@ struct ListTransitions: View {
 - [`navigationTransition(_:)`](https://developer.apple.com/documentation/swiftui/view/navigationtransition(_:))
 - [`matchedTransitionSource(id:in:)`](https://developer.apple.com/documentation/swiftui/view/matchedtransitionsource(id:in:))
 - [`NavigationTransition`](https://developer.apple.com/documentation/swiftui/navigationtransition)
-- [Enhancing your app with fluid transitions](https://developer.apple.com/documentation/swiftui/enhancing-your-app-with-fluid-transitions)
 - [WWDC24：Enhance your UI animations and transitions](https://developer.apple.com/videos/play/wwdc2024/10145/)

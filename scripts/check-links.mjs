@@ -21,7 +21,8 @@ function walk(dir) {
 const links = new Map()
 for (const file of walk(docs)) {
   const text = fs.readFileSync(file, 'utf8')
-  for (const m of text.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)) {
+  // Apple 文档的网址里常带一层括号，例如 …/view/padding(_:_:)
+  for (const m of text.matchAll(/\]\((https?:\/\/(?:[^()\s]|\([^()\s]*\))+)\)/g)) {
     const url = m[1]
     if (!links.has(url)) links.set(url, [])
     links.get(url).push(path.relative(root, file))
@@ -40,12 +41,15 @@ async function check(url) {
   const target = probeUrl(url)
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
+      // WWDC 讲座页面：编号不存在时会被重定向到别处，所以不跟随重定向
+      const isVideo = target.startsWith('https://developer.apple.com/videos/play/')
       const res = await fetch(target, {
-        redirect: 'follow',
+        redirect: isVideo ? 'manual' : 'follow',
         headers: { 'user-agent': 'Mozilla/5.0 (link-checker)' },
         signal: AbortSignal.timeout(20000),
       })
       if (res.ok) return { ok: true }
+      if (isVideo && res.status >= 300 && res.status < 400) return { ok: false, status: res.status }
       if (res.status === 404 || res.status === 410) return { ok: false, status: res.status }
       if (attempt === 2) return { ok: false, status: res.status }
     } catch (e) {

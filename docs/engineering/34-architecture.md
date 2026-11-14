@@ -824,6 +824,6 @@ Swift 6.4 让 Swift Testing 和旧的 XCTest 可以互操作：在 Swift Testing
 - [Defining test functions](https://developer.apple.com/documentation/testing/definingtests)
 - [Organizing your code with local packages](https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages)
 - [Previews in Xcode](https://developer.apple.com/documentation/swiftui/previews-in-xcode)
-- [Food Truck: Building a SwiftUI multiplatform app（可以参考的项目结构）](https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app)
+- [Food Truck: Building a SwiftUI multiplatform app（可以参考的项目结构）](https://developer.apple.com/documentation/swiftui/food-truck-building-a-swiftui-multiplatform-app)
 - [WWDC20：Data Essentials in SwiftUI](https://developer.apple.com/videos/play/wwdc2020/10040/)
 - [WWDC24：Meet Swift Testing](https://developer.apple.com/videos/play/wwdc2024/10179/)

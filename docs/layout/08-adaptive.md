@@ -601,7 +601,7 @@ struct ArrangementDemo: View {
 - [`ViewThatFits`](https://developer.apple.com/documentation/swiftui/viewthatfits)
 - [`AnyLayout`](https://developer.apple.com/documentation/swiftui/anylayout)
 - [`Layout` 协议](https://developer.apple.com/documentation/swiftui/layout)
-- [Composing custom layouts with SwiftUI（官方示例项目）](https://developer.apple.com/documentation/swiftui/composing_custom_layouts_with_swiftui)
+- [Composing custom layouts with SwiftUI（官方示例项目）](https://developer.apple.com/documentation/swiftui/composing-custom-layouts-with-swiftui)
 - [`LayoutValueKey`](https://developer.apple.com/documentation/swiftui/layoutvaluekey)
 - [`containerRelativeFrame(_:alignment:)`](https://developer.apple.com/documentation/swiftui/view/containerrelativeframe(_:alignment:))
 - [`onGeometryChange(for:of:action:)`](https://developer.apple.com/documentation/swiftui/view/ongeometrychange(for:of:action:))

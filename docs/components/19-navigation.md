@@ -731,7 +731,7 @@ NavigationSplitView
 - [`NavigationPath`](https://developer.apple.com/documentation/swiftui/navigationpath)
 - [`NavigationSplitView`](https://developer.apple.com/documentation/swiftui/navigationsplitview)
 - [Migrating to new navigation types](https://developer.apple.com/documentation/swiftui/migrating-to-new-navigation-types)
-- [Bringing robust navigation structure to your SwiftUI app](https://developer.apple.com/documentation/swiftui/bringing_robust_navigation_structure_to_your_swiftui_app)
+- [Bringing robust navigation structure to your SwiftUI app](https://developer.apple.com/documentation/swiftui/bringing-robust-navigation-structure-to-your-swiftui-app)
 - [`TabView`](https://developer.apple.com/documentation/swiftui/tabview)
 - [`Tab`](https://developer.apple.com/documentation/swiftui/tab)
 - [`TabSection`](https://developer.apple.com/documentation/swiftui/tabsection)

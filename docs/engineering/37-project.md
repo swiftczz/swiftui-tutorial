@@ -1048,7 +1048,7 @@ struct LightNotesApp: App {
 - [SwiftUI Tutorials（官方 SwiftUI 教程：Landmarks）](https://developer.apple.com/tutorials/swiftui)
 - [SwiftUI 概念教程（Exploring SwiftUI concepts）](https://developer.apple.com/tutorials/swiftui-concepts)
 - [Landmarks: Building an app with Liquid Glass（官方多平台示例项目）](https://developer.apple.com/documentation/swiftui/landmarks-building-an-app-with-liquid-glass)
-- [Food Truck: Building a SwiftUI multiplatform app（官方多平台示例项目）](https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app)
+- [Food Truck: Building a SwiftUI multiplatform app（官方多平台示例项目）](https://developer.apple.com/documentation/swiftui/food-truck-building-a-swiftui-multiplatform-app)
 - [Backyard Birds（SwiftData 与小组件的官方示例项目）](https://developer.apple.com/documentation/swiftui/backyard-birds-sample)
 - [SwiftData 框架](https://developer.apple.com/documentation/swiftdata)
 - [`NavigationSplitView`](https://developer.apple.com/documentation/swiftui/navigationsplitview)

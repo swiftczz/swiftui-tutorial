@@ -126,13 +126,18 @@ function typecheck(source, platform) {
 }
 
 async function checkOn(block, earlier, platform) {
+  // 只属于另一个平台的代码块不能作为这个平台的上下文
+  const other = platform === 'ios' ? 'macos' : 'ios'
+  earlier = earlier.filter((b) => !b.flags.includes(other))
   let firstLog = ''
+  let aloneLog = ''
   for (const [name, src] of variants(block, earlier)) {
     const r = await typecheck(src, platform)
     if (r.ok) return { ok: true, how: name }
+    if (name === 'alone') aloneLog = r.log
     if (!firstLog || name === 'ctx') firstLog = r.log
   }
-  return { ok: false, log: firstLog }
+  return { ok: false, log: firstLog, aloneLog }
 }
 
 async function check(block, earlier) {
@@ -142,7 +147,7 @@ async function check(block, earlier) {
     const r = { macos: await checkOn(block, earlier, 'macos'), ios: await checkOn(block, earlier, 'ios') }
     if (r.macos.ok !== r.ios.ok) {
       const bad = r.macos.ok ? 'ios' : 'macos'
-      const errs = r[bad].log.split('\n').filter((l) => /error:/.test(l)).slice(0, 2).map((l) => l.replace(/^.*error: /, '')).join(' | ')
+      const errs = (r[bad].aloneLog || r[bad].log).split('\n').filter((l) => /error:/.test(l) && /unavailable|only available/.test(l)).slice(0, 3).map((l) => l.replace(/^.*error: /, '')).join(' | ')
       console.log(`ONLY-${r.macos.ok ? 'macOS' : 'iOS'}  ${path.relative(root, block.file)}:${block.line}\n    ${errs}`)
     }
     return { ok: r.macos.ok || r.ios.ok, how: 'report', log: r.macos.log + r.ios.log }

@@ -584,8 +584,8 @@ func uploadSafely(_ lines: [String], over connection: Connection) async throws {
 
 ## 官方文档
 
-- [`task(priority:_:)`](https://developer.apple.com/documentation/swiftui/view/task(priority:_:))
-- [`task(id:priority:_:)`](https://developer.apple.com/documentation/swiftui/view/task(id:priority:_:))
+- [`task(name:priority:file:line:_:)`（即 `.task { }`）](https://developer.apple.com/documentation/swiftui/view/task(name:priority:file:line:_:))
+- [`task(id:name:priority:file:line:_:)`（即 `.task(id:) { }`）](https://developer.apple.com/documentation/swiftui/view/task(id:name:priority:file:line:_:))
 - [`refreshable(action:)`](https://developer.apple.com/documentation/swiftui/view/refreshable(action:))
 - [Concurrency（Swift 并发总览）](https://developer.apple.com/documentation/swift/concurrency)
 - [`MainActor`](https://developer.apple.com/documentation/swift/mainactor)

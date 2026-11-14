@@ -82,7 +82,7 @@ struct SemanticPlacements: View {
 | --- | --- | --- |
 | `.topBarLeading`、`.topBarTrailing` | 导航栏的头部、尾部 | iOS |
 | `.bottomBar` | 底部工具栏 | iOS |
-| `.keyboard` | 键盘上方（第 16 章） | iOS |
+| `.keyboard` | 键盘上方（第 16 章）。macOS 上对应触控栏 | iOS、macOS |
 | `.topBarPinnedTrailing` <Badge type="tip" text="iOS 27+" /> | 固定在顶栏尾部，不会被挤进溢出菜单 | iOS |
 
 ### 多个按钮与分组
@@ -247,14 +247,16 @@ struct RoleButtonsInToolbar: View {
 
 不需要自己指定图标和文字，系统会显示标准的“关闭”叉号和“确认”对勾，并给确认按钮加上强调色的玻璃。
 
-## 27 系列：空间不够时怎么办 <Badge type="tip" text="iOS 27+ / macOS 27+" />
+## 27 系列：空间不够时怎么办 <Badge type="tip" text="iOS 27+" />
 
 工具栏的宽度是有限的。窗口变窄、标题变长、字号变大时，项目可能放不下。27 系列提供了一组工具来声明“空间紧张时的取舍”。
 
-### 可见性优先级
+这一组 API 主要面向 iOS 和 iPadOS。各自的平台支持不同，下面逐个说明。macOS 的工具栏一直有自己的溢出机制：放不下的项目会自动进入工具栏尾部的“»”菜单，用户还可以自定义工具栏。
+
+### 可见性优先级 <Badge type="tip" text="iOS 27+ / macOS 26.1+" />
 
 ```swift
-@available(iOS 27, macOS 27, *)
+@available(iOS 27, macOS 26.1, *)
 struct VisibilityPriorityDemo: View {
     var body: some View {
         NavigationStack {
@@ -282,12 +284,12 @@ struct VisibilityPriorityDemo: View {
 
 空间不足时，系统按优先级从低到高把项目移进溢出菜单。`.high` 的项目最后才会被收起。还可以用 `ToolbarItemVisibilityPriority(higherThan:)` / `(lowerThan:)` 定义相对的优先级。
 
-### 溢出菜单
+### 溢出菜单 <Badge type="tip" text="iOS 27+，macOS 不可用" />
 
 有些操作本来就该待在“更多”菜单里。用 `ToolbarOverflowMenu` 明确声明：
 
-```swift
-@available(iOS 27, macOS 27, *)
+```swift ios
+@available(iOS 27, *)
 struct OverflowMenuDemo: View {
     var body: some View {
         NavigationStack {
@@ -310,6 +312,8 @@ struct OverflowMenuDemo: View {
 ```
 
 `ToolbarOverflowMenu` 里的操作直接进入溢出菜单，因空间不足被收起的项目也会出现在同一个菜单里。主工具栏只保留最关键的操作。
+
+`ToolbarOverflowMenu` 在 macOS 上不可用（编译器会报 *unavailable in macOS*）。多平台代码里，把这些次要操作放进 `ToolbarItem(placement: .secondaryAction)`：它在 iOS 上进入“更多”菜单，在 macOS 上显示在工具栏里，是两个平台通用的写法。
 
 ### 滚动时收起工具栏（iOS）
 
@@ -643,7 +647,7 @@ struct SearchPresentation: View {
 }
 ```
 
-绑定 `isPresented` 就能用代码激活或结束搜索。26 系列还可以用 `.searchFocused` 把搜索框的焦点绑定到 `@FocusState`。
+绑定 `isPresented` 就能用代码激活或结束搜索。还可以用 `.searchFocused` 把搜索框的焦点绑定到 `@FocusState`。
 
 ### 搜索与异步数据
 
@@ -733,7 +737,7 @@ struct TabSearchDemo: View {
 
 - `.toolbar` 在页面内容上声明操作，用 `ToolbarItem(placement:)` 指定语义位置，系统在各平台上映射到合适的地方。
 - 26 系列的工具栏使用 Liquid Glass，`ToolbarSpacer` 控制分组，按钮角色让系统提供标准样式。
-- 27 系列用 `visibilityPriority` 和 `ToolbarOverflowMenu` 声明空间不足时的取舍，`toolbarMinimizationBehavior` 让导航栏随滚动收起。
+- 27 系列用 `visibilityPriority` 和 `ToolbarOverflowMenu`（仅 iOS）声明空间不足时的取舍，`toolbarMinimizationBehavior` 让导航栏随滚动收起。
 - Xcode 27 的 SDK 用统一的 `@ContentBuilder` 取代了各种专用构建器。
 - `.searchable` 提供搜索框和文本绑定，过滤由你实现；支持建议、范围、令牌，以及用代码控制。
 - 远程搜索用 `.task(id:)` 实现防抖和取消。

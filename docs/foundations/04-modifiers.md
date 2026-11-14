@@ -428,7 +428,7 @@ Text("卡片")
 
 ## 官方文档
 
-- [View modifiers（修饰符总览）](https://developer.apple.com/documentation/swiftui/view-modifiers)
+- [View configuration（视图配置总览）](https://developer.apple.com/documentation/swiftui/view-configuration)
 - [`ViewModifier` 协议](https://developer.apple.com/documentation/swiftui/viewmodifier)
 - [`modifier(_:)`](https://developer.apple.com/documentation/swiftui/view/modifier(_:))
 - [`ModifiedContent`](https://developer.apple.com/documentation/swiftui/modifiedcontent)
