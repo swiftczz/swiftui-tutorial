@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Swift 6.4 有什么变化
       link: /appendix/swift-6-4
+    - theme: alt
+      text: GitHub 仓库
+      link: https://github.com/swiftczz/swiftui-tutorial
 
 features:
   - title: 先讲为什么，再讲怎么写

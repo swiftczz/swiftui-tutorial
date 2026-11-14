@@ -117,6 +117,9 @@ export default defineConfig({
       { text: '附录', link: '/appendix/swift-6-4' },
     ],
     sidebar,
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/swiftczz/swiftui-tutorial', ariaLabel: 'GitHub 仓库' },
+    ],
     outline: { level: [2, 3], label: '本页目录' },
     docFooter: { prev: '上一章', next: '下一章' },
     darkModeSwitchLabel: '外观',
