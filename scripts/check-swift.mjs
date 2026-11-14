@@ -69,7 +69,13 @@ function extract(file) {
 function splitImports(code) {
   const imports = []
   const rest = []
-  for (const l of code.split('\n')) (/^\s*import\s+\w+/.test(l) ? imports : rest).push(l)
+  let depth = 0 // #if 嵌套层数：条件编译块里的 import 要留在原地
+  for (const l of code.split('\n')) {
+    if (/^\s*#if\b/.test(l)) depth++
+    const hoist = depth === 0 && /^\s*import\s+\w+/.test(l)
+    ;(hoist ? imports : rest).push(l)
+    if (/^\s*#endif\b/.test(l)) depth = Math.max(0, depth - 1)
+  }
   return { imports: imports.join('\n'), rest: rest.join('\n') }
 }
 
