@@ -7,6 +7,9 @@
 //   macos    只在 macOS SDK 下检查
 //   both     必须在 iOS 与 macOS 两个 SDK 下都通过（默认：任一通过即可）
 //
+// 加 --platforms 参数：列出没有标 ios/macos、却只在一个平台通过的代码块，
+// 用来核对正文里的平台标注。
+//
 // 一个代码块依次尝试：独立编译 → 包进函数 → 包进 View.body
 // → 带上本文件前面出现过的声明再试一遍。
 //
@@ -24,6 +27,7 @@ const cacheDir = path.join(root, '.check-cache')
 fs.mkdirSync(cacheDir, { recursive: true })
 const args = process.argv.slice(2)
 const verbose = args.includes('--verbose')
+const platformReport = args.includes('--platforms')
 const filter = args.find((a) => !a.startsWith('--'))
 
 const sdk = (name) => execFileSync('xcrun', ['--sdk', name, '--show-sdk-path']).toString().trim()
@@ -127,6 +131,16 @@ async function checkOn(block, earlier, platform) {
 
 async function check(block, earlier) {
   const want = block.flags.includes('ios') ? ['ios'] : block.flags.includes('macos') ? ['macos'] : ['macos', 'ios']
+  if (platformReport && want.length === 2) {
+    // 报告模式：两个平台都检查，列出只在一个平台通过的代码块
+    const r = { macos: await checkOn(block, earlier, 'macos'), ios: await checkOn(block, earlier, 'ios') }
+    if (r.macos.ok !== r.ios.ok) {
+      const bad = r.macos.ok ? 'ios' : 'macos'
+      const errs = r[bad].log.split('\n').filter((l) => /error:/.test(l)).slice(0, 2).map((l) => l.replace(/^.*error: /, '')).join(' | ')
+      console.log(`ONLY-${r.macos.ok ? 'macOS' : 'iOS'}  ${path.relative(root, block.file)}:${block.line}\n    ${errs}`)
+    }
+    return { ok: r.macos.ok || r.ios.ok, how: 'report', log: r.macos.log + r.ios.log }
+  }
   const needAll = block.flags.includes('both')
   const results = {}
   for (const p of want) {
